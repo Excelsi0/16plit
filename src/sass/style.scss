@@ -1,0 +1,13 @@
+@use "/src/sass/libs/modern-normalize.css";
+
+@use "/src/sass/base/basic.scss";
+@use "/src/sass/base/mixins.scss";
+@use "/src/sass/base/variables.scss";
+
+@use "/src/sass/ui/btn.scss";
+
+@use "/src/sass/blocks/header.scss";
+@use "/src/sass/blocks/hero.scss";
+@use "/src/sass/blocks/advantages.scss";
+@use "/src/sass/blocks/services.scss";
+@use "/src/sass/blocks/gallery.scss";

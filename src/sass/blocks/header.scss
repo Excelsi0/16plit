@@ -1,0 +1,144 @@
+@use "/src/sass/base/variables.scss" as *;
+
+.header {
+    padding-top: 30px;
+    &__wrapper {
+        // padding: 0 20px;
+        display: flex;
+        align-items:center;
+        justify-content: space-between;
+
+    }
+
+    .logo {
+        padding-left: 20px;
+        z-index: 0;
+        &__link {
+            display: flex;
+            width: 200px;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+        }
+        &__name {
+            font-size: 22px;
+            font-weight: 900;
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: -50%;
+                left: 50%;
+                transform: translate(-58%, 10%) skewX(-40deg);
+                width: 40px;
+                height: 43px;
+                background-color: $color-logo;
+                background-color: $color-bg2;
+                z-index: -1;
+                
+            }
+
+        }
+        &__text {
+            text-transform: uppercase;
+            font-size: 12px;
+
+        }
+    }
+
+    .nav {
+        position: absolute;
+        top: 25px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 9999;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 5px 20px;
+        max-width: 600px;
+        
+        width: calc(100% - 5px);
+        height: 50px;
+
+        border-radius: $main-border-radius;
+         background: rgba(52, 42, 35, 0.38);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        &_fixed {
+            position: fixed;
+            top: 10px;
+        }
+        &__list {
+            display: flex;
+            width: 100%;
+            gap: 10px;
+            justify-content: space-around;
+        }
+        &__link {
+            -webkit-font-smoothing: antialiased;
+            font-size: 20px;
+            letter-spacing: 0.05em;
+            &_active {
+                position: relative;
+                &::after {
+                    content: "";
+                  
+                }
+            }
+        }
+    }
+      @media screen and (max-width: 1065px) {
+        .logo {
+            padding-left: 0;
+        }
+      }
+    @media screen and (max-width: 1024px) {
+        .nav {
+            top: 90px;
+            &_fixed {
+                top: 10px;
+            }
+
+            &__link {
+                font-size: 20px;
+            }
+        }
+        &__wrapper {
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+           
+    }
+    @media screen and (max-width: 768px) {
+        .nav__link {
+            font-size: 16px;
+            letter-spacing: 0;
+           }
+    }
+
+    @media screen and (max-width: 425px) {
+        &__wrapper {
+            padding: 0 5px;
+            justify-content: center;
+        }
+        .nav {
+            padding: 5px 10px;
+        }
+        .nav__list {
+            
+            justify-content: space-between;
+            
+        }
+        .nav__link {
+            font-size: 12px;
+            letter-spacing: 0;
+           }
+    }
+}
