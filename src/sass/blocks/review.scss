@@ -69,7 +69,7 @@
 
     .swiper-pagination-bullet-active {
         width: 28px;
-        border-radius: 999px;
+        border-radius: $main-border-radius;
         background: $color-bg3;
     }
 }
@@ -78,7 +78,7 @@
     height: 100%;
     min-height: 320px;
     padding: 28px;
-    border-radius: 28px;
+    border-radius: $main-border-radius;
     background-color: #5a534f;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -162,7 +162,7 @@
 
     .review-card {
         min-height: auto;
-        border-radius: 24px;
+        border-radius: $main-border-radius;
 
         &__avatar {
             width: 64px;
