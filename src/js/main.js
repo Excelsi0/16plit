@@ -50,6 +50,35 @@ new Swiper(".gallery__slider", {
     },
 });
 
+
+const reviewsSlider = new Swiper('.reviews__slider', {
+    modules: [Pagination, Autoplay],
+    loop: true,
+    spaceBetween: 24,
+    speed: 800,
+    grabCursor: true,
+    autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+    },
+    pagination: {
+        el: '.reviews__pagination',
+        clickable: true,
+    },
+    breakpoints: {
+        0: {
+            slidesPerView: 1,
+        },
+        768: {
+            slidesPerView: 2,
+        },
+        1200: {
+            slidesPerView: 3,
+        },
+    },
+});
+
+
 const nav = document.querySelector(".nav");
 
 if (nav) {

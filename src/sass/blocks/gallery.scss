@@ -1,10 +1,10 @@
 @use "/src/sass/base/variables.scss" as *;
 
 .gallery {
-    padding: 50px 0;
+    padding-top: 50px;
 
     &__wrapper {
-        padding: 20px;
+        padding: 20px 20px 35px 20px;
         border-radius: $main-border-radius;
         background-color: $color-bg2;
         background-image: url(/src/assets/images/bg/bg.png);
@@ -94,21 +94,92 @@
         background-color: $color-white;
     }
     .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
-        bottom: var(--swiper-pagination-bottom, 0px);
+        bottom: var(--swiper-pagination-bottom, 56px);
     }
 
     &__footer {
         margin-top: 32px;
         display: flex;
         justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px
     }
 
     &__btn {
+        margin-top: 28px;
         min-height: 56px;
         font-size: 16px;
         font-weight: 500;
         color: $color-white;
         text-decoration: none;
+    }
+
+
+
+    &__link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 1.2;
+        color: rgba(255, 255, 255, 0.82);
+        transition: all 0.3s linear;
+        &:hover {
+            transform:scale(1.1);
+        } 
+    }
+
+    &__link-text {
+        position: relative;
+        display: inline-block;
+        color: $color-white;
+
+        &::after {
+            content: attr(data-text);
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+
+            background: linear-gradient(
+                115deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.257) 35%,
+                rgba(255, 255, 255, 0.95) 50%,
+                rgb(255, 255, 255) 65%,
+                transparent 100%
+                );
+            background-repeat: no-repeat;
+            background-size: 22% 100%;
+            background-position: -45% 0;
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+
+            transform: skewX(-18deg);
+            animation: galleryTextShine 3.8s ease-in-out infinite;
+        }      
+    }
+
+    &__link-arrow {
+        display: inline-block;
+        transform: translateY(1px);
+    }
+}
+
+@keyframes galleryTextShine {
+    0% {
+        background-position: -45% 0;
+    }
+    35% {
+        background-position: 125% 0;
+    }
+    100% {
+        background-position: 125% 0;
     }
 }
 
@@ -116,7 +187,7 @@
     width: 10px;
     height: 10px;
     opacity: 0.5;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.819);
 }
 
 .swiper-pagination-bullet-active {
@@ -126,8 +197,6 @@
 
 @media (max-width: 991px) {
     .gallery {
-        padding: 80px 0;
-
         &__title {
             font-size: 34px;
         }
@@ -140,8 +209,6 @@
 
 @media (max-width: 575px) {
     .gallery {
-        padding: 64px 0;
-
         &__wrapper {
             padding: 16px;
         }
