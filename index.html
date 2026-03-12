@@ -459,11 +459,89 @@
                         </div>
                     </div>
                 </div>
-                </section
-                <section style="height: 1000px;">
+            </section>
 
-                </section>
-            </main>
-            <script type="module" src="/src/js/main.js"></script>
-        </body>
-    </html>
+            <section class="request" id="request">
+                <div class="container">
+                    <div class="request__wrapper">
+                        <div class="request__content">
+                            <p class="request__label">• заявка на мебель
+                                •</p>
+                            <h2 class="request__title">Расскажите, что
+                                хотите изготовить</h2>
+                            <p class="request__subtitle">
+                                Оставьте контакты, и мы свяжемся с вами,
+                                чтобы обсудить
+                                идею, размеры, материалы и детали заказа.
+                            </p>
+                        </div>
+
+                        <form class="request__form form-request" action="#"
+                            method="post">
+                            <div class="form-request__group">
+                                <label class="form-request__label"
+                                    for="name">Имя</label>
+                                <input
+                                    class="form-request__input"
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    placeholder="Ваше имя"
+                                    required>
+                            </div>
+
+                            <div class="form-request__group">
+                                <label class="form-request__label"
+                                    for="phone">Телефон</label>
+                                <input
+                                    class="form-request__input"
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    placeholder="+7 (999) 999-99-99"
+                                    inputmode="numeric"
+                                    autocomplete="tel"
+                                    required>
+                            </div>
+
+                            <div class="form-request__group">
+                                <label class="form-request__label"
+                                    for="telegram">
+                                    Telegram <span>(необязательно)</span>
+                                </label>
+                                <input
+                                    class="form-request__input"
+                                    type="text"
+                                    id="telegram"
+                                    name="telegram"
+                                    placeholder="@username">
+                            </div>
+                            <div class="form-request__group">
+                                <label class="form-request__label"
+                                    for="message">
+                                    Что хотите изготовить?
+                                </label>
+                                <textarea
+                                    class="form-request__input form-request__textarea"
+                                    id="message"
+                                    name="message"
+                                    placeholder="Например: нужен шкаф в прихожую, светлое дерево, ширина около 160 см..."></textarea>
+                            </div>
+
+                            <button class="form-request__button"
+                                type="submit">
+                                Отправить заявку
+                            </button>
+
+                            <p class="form-request__note">
+                                Нажимая кнопку, вы соглашаетесь на обработку
+                                персональных данных.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <script type="module" src="/src/js/main.js"></script>
+    </body>
+</html>

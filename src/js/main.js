@@ -110,3 +110,64 @@ if (nav) {
     window.addEventListener("resize", handleNav);
     window.addEventListener("scroll", updateNavState);
 }
+
+
+//масска для номера
+
+const phoneInput = document.querySelector('#phone');
+
+if (phoneInput) {
+    const formatPhone = (value) => {
+        const digits = value.replace(/\D/g, '');
+
+        if (!digits) return '';
+
+        let normalized = digits;
+
+        if (normalized[0] === '8') {
+            normalized = '7' + normalized.slice(1);
+        }
+
+        if (normalized[0] !== '7') {
+            normalized = '7' + normalized;
+        }
+
+        normalized = normalized.slice(0, 11);
+
+        let result = '+7';
+
+        if (normalized.length > 1) {
+            result += ' (' + normalized.slice(1, 4);
+        }
+
+        if (normalized.length >= 5) {
+            result += ') ' + normalized.slice(4, 7);
+        }
+
+        if (normalized.length >= 8) {
+            result += '-' + normalized.slice(7, 9);
+        }
+
+        if (normalized.length >= 10) {
+            result += '-' + normalized.slice(9, 11);
+        }
+
+        return result;
+    };
+
+    phoneInput.addEventListener('input', (e) => {
+        e.target.value = formatPhone(e.target.value);
+    });
+
+    phoneInput.addEventListener('focus', (e) => {
+        if (!e.target.value) {
+            e.target.value = '+7';
+        }
+    });
+
+    phoneInput.addEventListener('blur', (e) => {
+        if (e.target.value === '+7') {
+            e.target.value = '';
+        }
+    });
+}
