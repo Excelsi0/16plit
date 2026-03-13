@@ -1,0 +1,168 @@
+@use "/src/sass/base/variables.scss" as *;
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+
+    &.is-open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+
+        .modal__dialog {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+    }
+
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(10, 8, 7, 0.72);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+
+    &__dialog {
+        position: relative;
+        width: min(100% - 32px, 760px);
+        max-height: calc(100vh - 32px);
+        margin: 16px auto;
+        overflow-y: auto;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 32px;
+        background:
+            linear-gradient(rgba(71, 48, 17, 0.24), rgba(25, 20, 15, 0.92)),
+            url("/src/assets/images/bg/bg.png");
+        background-color: #201a17;
+        box-shadow: 0 20px 80px rgba(0, 0, 0, 0.4);
+        transform: translateY(24px) scale(0.98);
+        opacity: 0;
+        transition: transform 0.35s ease, opacity 0.35s ease;
+    }
+
+    &__close {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        z-index: 2;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.06);
+        color: $color-white;
+        font-size: 28px;
+        line-height: 1;
+        cursor: pointer;
+        transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+
+        &:hover {
+            transform: rotate(90deg);
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.18);
+        }
+    }
+}
+
+.modal-request {
+    padding: 36px;
+
+    &__top {
+        margin-bottom: 26px;
+        padding: 32px;
+        border-radius: 28px;
+        background:
+            linear-gradient(rgb(71 48 17 / 50%), rgb(25 20 15 / 88%)),
+            url("/src/assets/images/services/services3.jpg") center / cover no-repeat;
+    }
+
+    &__label {
+        margin-bottom: 14px;
+        font-size: 14px;
+        line-height: 1.2;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: $color-white;
+    }
+
+    &__title {
+        margin-bottom: 14px;
+        font-size: clamp(28px, 4vw, 42px);
+        line-height: 1.08;
+        font-weight: 600;
+        color: $color-white;
+        max-width: 560px;
+    }
+
+    &__subtitle {
+        max-width: 560px;
+        font-size: 16px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.86);
+    }
+
+    &__form {
+        padding: 32px;
+        border-radius: 28px;
+        background-color: rgba(90, 83, 79, 0.82);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+}
+
+@media (max-width: 768px) {
+    .modal {
+        &__dialog {
+            width: min(100% - 20px, 100%);
+            max-height: calc(100vh - 20px);
+            margin: 10px auto;
+            border-radius: 24px;
+        }
+
+        &__close {
+            top: 12px;
+            right: 12px;
+            width: 42px;
+            height: 42px;
+            font-size: 24px;
+        }
+    }
+
+    .modal-request {
+        padding: 16px;
+
+        &__top,
+        &__form {
+            padding: 22px;
+            border-radius: 20px;
+        }
+
+        &__title {
+            font-size: 28px;
+        }
+
+        &__subtitle {
+            font-size: 15px;
+        }
+    }
+
+    .form-request {
+        &__input,
+        &__button {
+            min-height: 54px;
+        }
+
+        &__textarea {
+            min-height: 130px;
+        }
+    }
+}

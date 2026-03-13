@@ -1,0 +1,408 @@
+@use "/src/sass/base/variables.scss" as *;
+
+.gallery-page {
+
+    color: rgba(255, 255, 255, 0.92);
+    .header {
+        padding-top: 2px;
+        .logo {
+            margin-left: -12px;
+        }
+    }
+
+    &__hero {
+        padding-top: 18px;
+
+        &_wrapper {
+            position: relative;
+            padding: 20px;
+            border-radius: $main-border-radius;
+            background-color: $color-bg2;
+            background-image: url("/src/assets/images/bg/bg.png");
+            overflow: hidden;
+        }
+    }
+    &__hero-content {
+        
+        padding-top: 100px;
+    }
+
+    &__label {
+        margin-bottom: 18px;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        text-align: center;
+        color: $color-text2;
+    }
+
+    &__title {
+        text-align: center;
+        margin: 0;
+        font-size: clamp(42px, 7vw, 84px);
+        line-height: 0.96;
+        font-weight: 400;
+        letter-spacing: -0.03em;
+    }
+
+    &__subtitle {
+        text-align: center;
+        margin-top: 24px;
+        
+        font-size: 18px;
+        line-height: 1.55;
+        color: $color-text;
+    }
+
+    &__actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+        margin-top: 32px;
+    }
+}
+
+
+
+
+.gallery-showcase {
+    padding-top: 50px;
+    &__wrapper {
+        padding: 20px;
+        border-radius: $main-border-radius;
+        background-color: $color-bg2;
+        background-image: url("/src/assets/images/bg/bg.png");
+    }
+
+    &__top {
+        margin-bottom: 40px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+        gap: 24px;
+        align-items: end;
+    }
+
+    &__label {
+        margin-bottom: 12px;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: rgba(255, 255, 255, 0.56);
+    }
+
+    &__title {
+        margin: 0;
+        font-size: clamp(30px, 4vw, 56px);
+        line-height: 1;
+        font-weight: 400;
+    }
+
+    &__text {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    &__grid {
+        column-count: 4;
+        column-gap: 16px;
+    }
+
+    &__item {
+        position: relative;
+        display: block;
+        margin-bottom: 16px;
+        overflow: hidden;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.04);
+        break-inside: avoid;
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            transition: transform 0.6s ease, filter 0.4s ease;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 0) 0%,
+                rgba(0, 0, 0, 0.18) 100%
+            );
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            pointer-events: none;
+        }
+
+        &:hover img {
+            transform: scale(1.03);
+            filter: saturate(1.03);
+        }
+
+        &:hover::after {
+            opacity: 1;
+        }
+    }
+}
+
+.price-guide {
+    padding-top: 50px;
+
+    &__wrapper {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 24px;
+        align-items: start;
+        padding: 20px;
+        border-radius: $main-border-radius;
+        background-color: $color-bg2;
+        background-image: url("/src/assets/images/bg/bg.png");
+    }
+
+    &__content,
+    &__list {
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 32px;
+        background:
+            linear-gradient(180deg, rgba(255,255,255,0.035) 0%, rgba(255,255,255,0.02) 100%),
+            rgba(255, 255, 255, 0.02);
+        backdrop-filter: blur(14px);
+    }
+
+    &__content {
+        padding: 34px;
+        position: sticky;
+        top: 120px;
+    }
+
+    &__label {
+        margin-bottom: 14px;
+        font-size: 14px;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: $color-text2;
+    }
+
+    &__title {
+        margin: 0 0 16px;
+        text-align: center;
+        font-size: clamp(28px, 4vw, 48px);
+        line-height: 1;
+        font-weight: 400;
+    }
+
+    &__subtitle {
+        text-align: center;
+        margin: 0;
+        max-width: 100%;
+        font-size: 16px;
+        line-height: 1.6;
+        color: $color-text;
+    }
+
+    &__list {
+        padding: 14px;
+    }
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 22px 20px;
+        border-radius: 22px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.035);
+            transform: translateX(4px);
+        }
+    }
+
+    &__name {
+        font-size: 18px;
+        color: $color-text3;
+    }
+
+    &__value {
+        white-space: nowrap;
+        font-size: 18px;
+        color: $color-value;
+    }
+}
+
+.gallery-cta {
+    padding-top: 50px;
+
+    &__wrapper {
+        padding: 50px 34px;
+        border-radius: 32px;
+        text-align: center;
+        padding: 20px;
+        border-radius: $main-border-radius;
+        background-color: $color-bg2;
+        background-image: url("/src/assets/images/bg/bg.png");
+       
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    &__label {
+        margin-bottom: 14px;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: $color-text2;
+    }
+
+    &__title {
+        margin: 0 0 16px;
+        font-size: clamp(30px, 4vw, 54px);
+        line-height: 1.04;
+        font-weight: 400;
+    }
+
+    &__text {
+        max-width: 680px;
+        margin: 0 auto 26px;
+        font-size: 17px;
+        line-height: 1.6;
+        color: $color-text;
+    }
+}
+
+/* Кнопки */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 56px;
+    padding: 0 24px;
+    border-radius: $main-border-radius;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 1;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    border: 1px solid transparent;
+
+    &:hover {
+        transform: translateY(-2px);
+    }
+
+    &--light {
+        background: #f3e7d7;
+        color: #171513;
+        &:hover {
+            color: #f3e7d7;
+        }
+    }
+
+    &--ghost {
+        border-color: rgba(255, 255, 255, 0.14);
+        color: rgba(255, 255, 255, 0.88);
+        background: transparent;
+    }
+}
+
+/* Адаптив */
+@media (max-width: 992px) {
+    .gallery-page {
+        .header {
+            padding-top: 0;
+        }
+
+    }
+    .gallery-showcase {
+        &__top {
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        &__grid {
+            column-count: 3;
+            column-gap: 14px;
+        }
+
+        &__item {
+            margin-bottom: 14px;
+            border-radius: 18px;
+        }
+    }
+
+    .price-guide {
+        &__wrapper {
+            grid-template-columns: 1fr;
+        }
+
+        &__content {
+            position: static;
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .gallery-page {
+
+        &__hero {
+        }
+
+        &__subtitle {
+            font-size: 16px;
+        }
+    }
+
+    .gallery-showcase {
+    
+
+        &__grid {
+            column-count: 2;
+            column-gap: 12px;
+        }
+
+        &__item {
+            margin-bottom: 12px;
+            border-radius: 16px;
+        }
+    }
+
+    .price-guide {
+        &__content,
+        &__list {
+            border-radius: 24px;
+        }
+
+        &__content {
+            padding: 24px;
+        }
+
+        &__item {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 18px 16px;
+        }
+    }
+
+    .gallery-cta {
+        &__label {
+            font-size: 12px;
+        }
+        &__wrapper {
+            padding: 36px 20px;
+            border-radius: 24px;
+        }
+    }
+
+    .btn {
+        width: 100%;
+    }
+}

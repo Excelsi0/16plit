@@ -1,11 +1,5 @@
 import "/src/sass/style.scss";
 
-// import { Fancybox } from "@fancyapps/ui";
-// import "@fancyapps/ui/dist/fancybox/fancybox.css";
-
-// Fancybox.bind("[data-fancybox]", {
-// });
-
 import { Fancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
@@ -14,70 +8,99 @@ import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-Fancybox.bind("[data-fancybox]", {});
+// =====================
+// Fancybox: общий
+// =====================
 
-new Swiper(".gallery__slider", {
-    modules: [Autoplay, Pagination],
-    loop: true,
-    speed: 900,
-    spaceBetween: 16,
-    grabCursor: true,
+const fancyboxItems = document.querySelectorAll("[data-fancybox]");
 
-    autoplay: {
-        delay: 2800,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-    },
+if (fancyboxItems.length) {
+    Fancybox.bind("[data-fancybox]", {});
+}
 
-    pagination: {
-        el: ".gallery__pagination",
-        clickable: true,
-    },
+// =====================
+// Слайдер галереи на главной
+// =====================
 
-    breakpoints: {
-        0: {
-            slidesPerView: 1,
-        },
-        425: {
-            slidesPerView: 1.2,
-        },
-        768: {
-            slidesPerView: 2.2,
-        },
-        1200: {
-            slidesPerView: 2.6,
-        },
-    },
-});
+const gallerySlider = document.querySelector(".gallery__slider");
 
+if (gallerySlider) {
+    new Swiper(".gallery__slider", {
+        modules: [Autoplay, Pagination],
+        loop: true,
+        speed: 900,
+        spaceBetween: 16,
+        grabCursor: true,
 
-const reviewsSlider = new Swiper('.reviews__slider', {
-    modules: [Pagination, Autoplay],
-    loop: true,
-    spaceBetween: 24,
-    speed: 800,
-    grabCursor: true,
-    autoplay: {
-        delay: 4000,
-        disableOnInteraction: false,
-    },
-    pagination: {
-        el: '.reviews__pagination',
-        clickable: true,
-    },
-    breakpoints: {
-        0: {
-            slidesPerView: 1,
+        autoplay: {
+            delay: 2800,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
         },
-        768: {
-            slidesPerView: 2,
-        },
-        1200: {
-            slidesPerView: 3,
-        },
-    },
-});
 
+        pagination: {
+            el: ".gallery__pagination",
+            clickable: true,
+        },
+
+        breakpoints: {
+            0: {
+                slidesPerView: 1,
+            },
+            425: {
+                slidesPerView: 1.2,
+            },
+            768: {
+                slidesPerView: 2.2,
+            },
+            1200: {
+                slidesPerView: 2.6,
+            },
+        },
+    });
+}
+
+// =====================
+// Слайдер отзывов
+// =====================
+
+const reviewsSliderElement = document.querySelector(".reviews__slider");
+
+if (reviewsSliderElement) {
+    new Swiper(".reviews__slider", {
+        modules: [Pagination, Autoplay],
+        loop: true,
+        spaceBetween: 24,
+        speed: 800,
+        grabCursor: true,
+
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+
+        pagination: {
+            el: ".reviews__pagination",
+            clickable: true,
+        },
+
+        breakpoints: {
+            0: {
+                slidesPerView: 1,
+            },
+            768: {
+                slidesPerView: 2,
+            },
+            1200: {
+                slidesPerView: 3,
+            },
+        },
+    });
+}
+
+// =====================
+// Навигация
+// =====================
 
 const nav = document.querySelector(".nav");
 
@@ -111,79 +134,154 @@ if (nav) {
     window.addEventListener("scroll", updateNavState);
 }
 
+// =====================
+// Маска телефона
+// =====================
 
-//масска для номера
-
-const phoneInput = document.querySelector('#phone');
+const phoneInput = document.querySelector("#phone");
 
 if (phoneInput) {
     const formatPhone = (value) => {
-        const digits = value.replace(/\D/g, '');
+        const digits = value.replace(/\D/g, "");
 
-        if (!digits) return '';
+        if (!digits) return "";
 
         let normalized = digits;
 
-        if (normalized[0] === '8') {
-            normalized = '7' + normalized.slice(1);
+        if (normalized[0] === "8") {
+            normalized = "7" + normalized.slice(1);
         }
 
-        if (normalized[0] !== '7') {
-            normalized = '7' + normalized;
+        if (normalized[0] !== "7") {
+            normalized = "7" + normalized;
         }
 
         normalized = normalized.slice(0, 11);
 
-        let result = '+7';
+        let result = "+7";
 
         if (normalized.length > 1) {
-            result += ' (' + normalized.slice(1, 4);
+            result += " (" + normalized.slice(1, 4);
         }
 
         if (normalized.length >= 5) {
-            result += ') ' + normalized.slice(4, 7);
+            result += ") " + normalized.slice(4, 7);
         }
 
         if (normalized.length >= 8) {
-            result += '-' + normalized.slice(7, 9);
+            result += "-" + normalized.slice(7, 9);
         }
 
         if (normalized.length >= 10) {
-            result += '-' + normalized.slice(9, 11);
+            result += "-" + normalized.slice(9, 11);
         }
 
         return result;
     };
 
-    phoneInput.addEventListener('input', (e) => {
+    phoneInput.addEventListener("input", (e) => {
         e.target.value = formatPhone(e.target.value);
     });
 
-    phoneInput.addEventListener('focus', (e) => {
+    phoneInput.addEventListener("focus", (e) => {
         if (!e.target.value) {
-            e.target.value = '+7';
+            e.target.value = "+7";
         }
     });
 
-    phoneInput.addEventListener('blur', (e) => {
-        if (e.target.value === '+7') {
-            e.target.value = '';
+    phoneInput.addEventListener("blur", (e) => {
+        if (e.target.value === "+7") {
+            e.target.value = "";
         }
     });
 }
 
-// акардеон 
+// =====================
+// Аккордеон FAQ
+// =====================
 
-const faqItems = document.querySelectorAll('.faq__item');
+const faqItems = document.querySelectorAll(".faq__item");
 
-faqItems.forEach((item) => {
-    item.addEventListener('toggle', () => {
-        if (item.open) {
-            faqItems.forEach((otherItem) => {
-                if (otherItem !== item) {
-                    otherItem.removeAttribute('open');
-                }
-            });
+if (faqItems.length) {
+    faqItems.forEach((item) => {
+        item.addEventListener("toggle", () => {
+            if (item.open) {
+                faqItems.forEach((otherItem) => {
+                    if (otherItem !== item) {
+                        otherItem.removeAttribute("open");
+                    }
+                });
+            }
+        });
+    });
+}
+
+// =====================
+// Модальное окно
+// =====================
+
+const openModalButtons = document.querySelectorAll("[data-open-modal]");
+const modals = document.querySelectorAll(".modal");
+
+if (openModalButtons.length && modals.length) {
+    function openModal(modal) {
+        if (!modal) return;
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeModal(modal) {
+        if (!modal) return;
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+    }
+
+    openModalButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const modalId = button.dataset.openModal;
+            const modal = document.getElementById(modalId);
+            openModal(modal);
+        });
+    });
+
+    modals.forEach((modal) => {
+        modal.addEventListener("click", (event) => {
+            if (event.target.hasAttribute("data-close-modal")) {
+                closeModal(modal);
+            }
+        });
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            const openedModal = document.querySelector(".modal.is-open");
+            if (openedModal) {
+                closeModal(openedModal);
+            }
         }
     });
-});
+}
+
+// =====================
+// Fancybox для страницы gallery
+// =====================
+
+const worksGalleryItems = document.querySelectorAll('[data-fancybox="works"]');
+
+if (worksGalleryItems.length) {
+    Fancybox.bind('[data-fancybox="works"]', {
+        animated: true,
+        showClass: "f-fadeIn",
+        hideClass: "f-fadeOut",
+        dragToClose: true,
+        Toolbar: {
+            display: {
+                left: [],
+                middle: [],
+                right: ["close"],
+            },
+        },
+    });
+}

@@ -75,7 +75,9 @@
                                             решения по индивидуальным размерам и
                                             задачам вашего пространства.
                                         </p>
-                                        <button class="hero__btn btn">Связаться
+                                        <button type="button"
+                                            data-open-modal="request-modal"
+                                            class="hero__btn btn btn--light">Связаться
                                             с
                                             нами</button>
                                     </div>
@@ -249,7 +251,7 @@
                         <div class="gallery__footer">
                             <button class="gallery__btn btn">Оставить
                                 заявку</button>
-                            <a href="/gallery.html" class="gallery__link">
+                            <a href="/gallery/" class="gallery__link">
                                 <span
                                     class="gallery__link-text"
                                     data-text="Смотреть больше работ">
@@ -870,6 +872,122 @@
                 </div>
             </footer>
         </main>
+
+        <div class="modal" id="request-modal" aria-hidden="true">
+            <div class="modal__overlay" data-close-modal></div>
+
+            <div class="modal__dialog" role="dialog" aria-modal="true"
+                aria-labelledby="request-modal-title">
+                <button class="modal__close" type="button"
+                    aria-label="Закрыть окно" data-close-modal>
+                    &times;
+                </button>
+
+                <div class="modal-request">
+                    <div class="modal-request__top">
+                        <p class="modal-request__label">• заявка на мебель •</p>
+                        <h2 class="modal-request__title"
+                            id="request-modal-title">
+                            Расскажите, что хотите изготовить
+                        </h2>
+                        <p class="modal-request__subtitle">
+                            Оставьте контакты, и мы свяжемся с вами, чтобы
+                            обсудить идею,
+                            размеры, материалы и детали заказа.
+                        </p>
+                    </div>
+
+                    <form class="modal-request__form form-request" action="#"
+                        method="post">
+                        <div class="form-request__group">
+                            <label class="form-request__label"
+                                for="modal-name">Имя</label>
+                            <input
+                                class="form-request__input"
+                                type="text"
+                                id="modal-name"
+                                name="name"
+                                placeholder="Ваше имя"
+                                required>
+                        </div>
+
+                        <div class="form-request__group">
+                            <label class="form-request__label"
+                                for="modal-phone">Телефон</label>
+                            <input
+                                class="form-request__input"
+                                type="tel"
+                                id="modal-phone"
+                                name="phone"
+                                placeholder="+7 (999) 999-99-99"
+                                inputmode="numeric"
+                                autocomplete="tel"
+                                required>
+                        </div>
+
+                        <div class="form-request__group">
+                            <label class="form-request__label"
+                                for="modal-telegram">
+                                Telegram <span>(необязательно)</span>
+                            </label>
+                            <input
+                                class="form-request__input"
+                                type="text"
+                                id="modal-telegram"
+                                name="telegram"
+                                placeholder="@username">
+                        </div>
+
+                        <div class="form-request__group">
+                            <label class="form-request__label"
+                                for="modal-message">
+                                Что хотите изготовить?
+                            </label>
+                            <textarea
+                                class="form-request__input form-request__textarea"
+                                id="modal-message"
+                                name="message"
+                                placeholder="Например: нужен шкаф в прихожую, светлое дерево, ширина около 160 см..."></textarea>
+                        </div>
+
+                        <button class="form-request__button" type="submit">
+                            Отправить заявку
+                        </button>
+
+                        <p class="form-request__note">
+                            Нажимая кнопку, вы соглашаетесь на обработку
+                            персональных данных.
+                        </p>
+
+                        <div class="form-request__contacts">
+                            <p class="form-request__contacts-text">
+                                Или свяжитесь с нами напрямую
+                            </p>
+
+                            <div class="form-request__socials">
+                                <a class="form-request__social" href="#"
+                                    aria-label="WhatsApp">
+                                    <img src="/src/assets/icons/whatsapp.svg"
+                                        alt>
+                                </a>
+
+                                <a class="form-request__social" href="#"
+                                    aria-label="Telegram">
+                                    <img src="/src/assets/icons/telegram.svg"
+                                        alt>
+                                </a>
+
+                                <a class="form-request__social" href="#"
+                                    aria-label="VK">
+                                    <img src="/src/assets/icons/vk.svg" alt>
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <script type="module" src="/src/js/main.js"></script>
     </body>
 </html>

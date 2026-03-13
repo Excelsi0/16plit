@@ -2,7 +2,7 @@
 
 .btn {
    
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items:center;
 
@@ -15,8 +15,9 @@
     background: none;
     color: $color-white;
 
-    font-size: 22px;
+    font-size: 16px;
     text-transform: uppercase;
+    text-decoration: none;
     cursor: pointer;
 
     background: rgb(255 255 255 / 12%);
@@ -24,9 +25,6 @@
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
 
-    // box-shadow:
-    // 0 8px 30px rgba(0, 0, 0, 0.18),
-    // inset 0 1px 0 rgba(255, 255, 255, 0.18);
 
     border: 1px solid rgba(0, 0, 0, 0.22);
     border-radius: $main-border-radius;
@@ -47,8 +45,19 @@
             0 12px 36px rgba(0, 0, 0, 0.22),
             inset 0 1px 0 rgba(255, 255, 255, 0.24);
     }
+    &--light {
+        background: #f3e7d7;
+        color: #171513;
+    }
+
+    &--ghost {
+        border-color: rgba(255, 255, 255, 0.14);
+        color: rgba(255, 255, 255, 0.88);
+        background: transparent;
+    }
 
     @media screen and (max-width: 420px) {
         font-size: 18px;
     }
 }
+
