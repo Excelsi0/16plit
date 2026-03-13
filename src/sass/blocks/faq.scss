@@ -1,0 +1,202 @@
+@use "/src/sass/base/variables.scss" as *;
+
+.faq {
+    padding-top: 50px;
+
+    &__wrapper {
+        padding: 20px;
+        border-radius: $main-border-radius;
+        background-color: $color-bg2;
+        background-image: url("/src/assets/images/bg/bg.png");
+    }
+
+    &__head {
+        max-width: 760px;
+        margin: 0 auto 36px;
+        text-align: center;
+    }
+
+    &__label {
+        margin-bottom: 16px;
+        font-size: 14px;
+        line-height: 1.2;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: $color-white;
+    }
+
+    &__title {
+        margin-bottom: 18px;
+        font-size: 42px;
+        line-height: 1.1;
+        font-weight: 600;
+        color: $color-white;
+    }
+
+    &__subtitle {
+        font-size: 18px;
+        line-height: 1.6;
+        color: $color-white;
+        opacity: 0.9;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &__item {
+        overflow: hidden;
+        border-radius: $main-border-radius;
+        background-color: rgba(90, 83, 79, 0.88);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+
+    &__details {
+        display: block;
+    }
+
+    &__question {
+        position: relative;
+        display: block;
+        list-style: none;
+        cursor: pointer;
+        padding: 26px 72px 26px 28px;
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 28px;
+            width: 18px;
+            height: 2px;
+            border-radius: 999px;
+            background-color: $color-white;
+            transform: translateY(-50%);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        &::after {
+            transform: translateY(-50%) rotate(90deg);
+        }
+    }
+
+    &__question-text {
+        display: block;
+        font-size: 20px;
+        line-height: 1.4;
+        font-weight: 500;
+        color: $color-white;
+    }
+
+    &__content {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.35s ease;
+    }
+
+    &__answer {
+        overflow: hidden;
+
+        p {
+            margin: 0;
+            padding: 0 28px 26px;
+            font-size: 17px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.82);
+
+            opacity: 0;
+            transform: translateY(-8px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+    }
+
+    &__details[open] {
+        .faq__question::after {
+            opacity: 0;
+        }
+    }
+
+    &__details[open] + .faq__content {
+        grid-template-rows: 1fr;
+
+        .faq__answer p {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .faq {
+        &__title {
+            font-size: 34px;
+        }
+
+        &__subtitle {
+            font-size: 16px;
+        }
+
+        &__question {
+            padding: 24px 64px 24px 24px;
+        }
+
+        &__question-text {
+            font-size: 18px;
+        }
+
+        &__answer {
+            p {
+                padding: 0 24px 24px;
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .faq {
+        padding-top: 40px;
+
+        &__wrapper {
+            padding: 16px;
+        }
+
+        &__head {
+            margin-bottom: 28px;
+        }
+
+        &__title {
+            font-size: 28px;
+        }
+
+        &__question {
+            padding: 20px 56px 20px 20px;
+
+            &::before,
+            &::after {
+                right: 20px;
+                width: 16px;
+            }
+        }
+
+        &__question-text {
+            font-size: 17px;
+        }
+
+        &__answer {
+            p {
+                padding: 0 20px 20px;
+                font-size: 15px;
+                line-height: 1.6;
+            }
+        }
+    }
+}

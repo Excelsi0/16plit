@@ -94,7 +94,7 @@
         background-color: $color-white;
     }
     .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
-        bottom: var(--swiper-pagination-bottom, 56px);
+        bottom: var(--swiper-pagination-bottom, 70px);
     }
 
     &__footer {
@@ -236,5 +236,9 @@
             width: 100%;
             justify-content: center;
         }
+        
+    }
+    .gallery .swiper-pagination-fraction, .gallery .swiper-pagination-custom, .gallery .swiper-horizontal > .swiper-pagination-bullets, .gallery .swiper-pagination-bullets.swiper-pagination-horizontal {
+        bottom: var(--swiper-pagination-bottom, 56px);
     }
 }
