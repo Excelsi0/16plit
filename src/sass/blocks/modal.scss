@@ -1,5 +1,13 @@
 @use "/src/sass/base/variables.scss" as *;
 
+body.body-lock {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+
 .modal {
     position: fixed;
     inset: 0;
@@ -7,7 +15,11 @@
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+    overflow-y: auto;
+    overscroll-behavior: none;
+    -webkit-overflow-scrolling: touch;
     transition: opacity 0.35s ease, visibility 0.35s ease;
+    padding: 16px;
 
     &.is-open {
         opacity: 1;
@@ -21,7 +33,7 @@
     }
 
     &__overlay {
-        position: absolute;
+        position: fixed;
         inset: 0;
         background: rgba(10, 8, 7, 0.72);
         backdrop-filter: blur(8px);
@@ -30,15 +42,14 @@
 
     &__dialog {
         position: relative;
-        width: min(100% - 32px, 760px);
-        max-height: calc(100vh - 32px);
-        margin: 16px auto;
-        overflow-y: auto;
+        z-index: 1;
+        width: min(100%, 760px);
+        margin: 0 auto;
         border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 32px;
         background:
             linear-gradient(rgba(71, 48, 17, 0.24), rgba(25, 20, 15, 0.92)),
-            url("/src/assets/images/bg/bg.png");
+            url("/images/bg/bg.png");
         background-color: #201a17;
         box-shadow: 0 20px 80px rgba(0, 0, 0, 0.4);
         transform: translateY(24px) scale(0.98);
@@ -82,7 +93,7 @@
         border-radius: 28px;
         background:
             linear-gradient(rgb(71 48 17 / 50%), rgb(25 20 15 / 88%)),
-            url("/src/assets/images/services/services3.jpg") center / cover no-repeat;
+            url("/images/services/services3.jpg") center / cover no-repeat;
     }
 
     &__label {
@@ -121,10 +132,10 @@
 
 @media (max-width: 768px) {
     .modal {
+        padding: 10px;
+
         &__dialog {
-            width: min(100% - 20px, 100%);
-            max-height: calc(100vh - 20px);
-            margin: 10px auto;
+            width: 100%;
             border-radius: 24px;
         }
 

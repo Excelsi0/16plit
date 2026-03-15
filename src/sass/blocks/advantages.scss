@@ -4,7 +4,7 @@
     padding-top: 50px;
     &__wrapper {
         background-color:$color-bg2;
-        background-image: url(/src/assets/images/bg/bg.png);
+        background-image: url(/images/bg/bg.png);
         padding: 20px;
         border-radius: $main-border-radius;
         display: grid;
@@ -16,7 +16,7 @@
         min-height: 640px;
         border-radius: $main-border-radius;
         padding: 24px;
-        background: url("/src/assets/images/advantages/advantages.webp") center / cover no-repeat;
+        background: url("/images/advantages/advantages.webp") center / cover no-repeat;
         position: relative;
         overflow: hidden;
     }

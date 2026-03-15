@@ -9,7 +9,7 @@
 //         height: 600px;
 //         border-radius: $main-border-radius;
 //         background-color:$color-bg2;
-//         background-image: url(/src/assets/images/bg/bg.png);
+//         background-image: url(/images/bg/bg.png);
 //     }
 //     &__item {
 //         position: relative;
@@ -42,18 +42,18 @@
 //         &_1 {
 //             background:
 //                     linear-gradient(rgba(60, 35, 20, 0.8), rgba(60, 35, 20, 0.8)),
-//                     url('/src/assets/images/services/services1.jpg') center / cover no-repeat;
+//                     url('/images/services/services1.jpg') center / cover no-repeat;
 //         }
 //         &_2 {
 //             background:
 //                 linear-gradient(rgba(60, 21, 20, 0.5), rgba(60, 21, 20, 0.5)),
-//                 url('/src/assets/images/services/services3.jpg') center / cover no-repeat;
+//                 url('/images/services/services3.jpg') center / cover no-repeat;
 //         }
 //         &_3 {
 //             border-radius: 0 $main-border-radius $main-border-radius 0;
 //             background:
 //                 linear-gradient(rgba(60, 49, 20, 0.5), rgba(60, 49, 20, 0.5)),
-//                 url('/src/assets/images/services/services4.jpg') center / cover no-repeat;
+//                 url('/images/services/services4.jpg') center / cover no-repeat;
 //         }
 //     }
 //     &__btn {
@@ -123,7 +123,7 @@
         height: 600px;
         border-radius: $main-border-radius;
         background-color: $color-bg2;
-        background-image: url(/src/assets/images/bg/bg.png);
+        background-image: url(/images/bg/bg.png);
     }
 
     &__item {
@@ -140,18 +140,18 @@
          &_1 {
             background:
                     linear-gradient(rgba(60, 35, 20, 0.8), rgba(60, 35, 20, 0.8)),
-                    url('/src/assets/images/services/services1.jpg') center / cover no-repeat;
+                    url('/images/services/services1.jpg') center / cover no-repeat;
         }
         &_2 {
             background:
                 linear-gradient(rgba(60, 21, 20, 0.5), rgba(60, 21, 20, 0.5)),
-                url('/src/assets/images/services/services3.jpg') center / cover no-repeat;
+                url('/images/services/services3.jpg') center / cover no-repeat;
         }
         &_3 {
             border-radius: 0 $main-border-radius $main-border-radius 0;
             background:
                 linear-gradient(rgba(60, 49, 20, 0.5), rgba(60, 49, 20, 0.5)),
-                url('/src/assets/images/services/services4.jpg') center / cover no-repeat;
+                url('/images/services/services4.jpg') center / cover no-repeat;
         }
         &_1,
         &_2,

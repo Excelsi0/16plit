@@ -219,23 +219,42 @@ if (faqItems.length) {
 // =====================
 // Модальное окно
 // =====================
-
 const openModalButtons = document.querySelectorAll("[data-open-modal]");
 const modals = document.querySelectorAll(".modal");
 
 if (openModalButtons.length && modals.length) {
+    let scrollY = 0;
+
     function openModal(modal) {
         if (!modal) return;
+
+        scrollY = window.scrollY;
+
         modal.classList.add("is-open");
         modal.setAttribute("aria-hidden", "false");
-        document.body.style.overflow = "hidden";
+
+        document.body.classList.add("body-lock");
+        document.body.style.top = `-${scrollY}px`;
     }
 
     function closeModal(modal) {
         if (!modal) return;
+
         modal.classList.remove("is-open");
         modal.setAttribute("aria-hidden", "true");
-        document.body.style.overflow = "";
+
+        document.body.classList.remove("body-lock");
+        document.body.style.top = "";
+
+        const html = document.documentElement;
+        const previousScrollBehavior = html.style.scrollBehavior;
+
+        html.style.scrollBehavior = "auto";
+        window.scrollTo(0, scrollY);
+
+        requestAnimationFrame(() => {
+            html.style.scrollBehavior = previousScrollBehavior;
+        });
     }
 
     openModalButtons.forEach((button) => {
@@ -285,3 +304,5 @@ if (worksGalleryItems.length) {
         },
     });
 }
+
+

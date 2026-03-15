@@ -1,0 +1,62 @@
+@use "/src/sass/base/variables.scss" as *;
+
+
+.floating-contact {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 300;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 58px;
+    padding: 0 22px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    background: rgba(52, 42, 35, 0.72);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    color: $color-white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+    cursor: pointer;
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        opacity 0.3s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        background: rgba(70, 57, 47, 0.82);
+        border-color: rgba(255, 255, 255, 0.16);
+    }
+
+    &:focus-visible {
+        outline: none;
+        border-color: rgba(255, 255, 255, 0.28);
+        box-shadow:
+            0 10px 30px rgba(0, 0, 0, 0.22),
+            0 0 0 4px rgba(255, 255, 255, 0.08);
+    }
+
+    &__text {
+        font-size: 15px;
+        line-height: 1;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 768px) {
+    .floating-contact {
+        right: 14px;
+        bottom: 14px;
+        min-height: 52px;
+        padding: 0 18px;
+
+        &__text {
+            font-size: 14px;
+        }
+    }
+}
